@@ -227,6 +227,9 @@ class Reader(object):
                         reply_list.append(reply)
                     reply_objects = []
                     for item in reply_list:
+                        if not('user' in  item.keys()):
+                            continue
+
                         item_lookup_key = (item['user'], item['ts'])
                         item_replies = user_ts_lookup.get(item_lookup_key)
                         if item_replies is not None:
